@@ -1,0 +1,29 @@
+###Date : 03/02/2021 17:05:08
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:05:53
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:10:21
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:11:02
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:11:33
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:12:22
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 03/02/2021 17:14:06
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+###Date : 16/07/2021 18:03:48
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : Cannot open database "MEDICDATA" requested by the login. The login failed.
+Login failed for user 'sa'.
+###Date : 16/07/2021 18:04:20
+###Filename : ClsDataset.cs###FunctionaName : SignInUserMaster
+###ErrMsg : Cannot open database "MEDICDATA" requested by the login. The login failed.
+Login failed for user 'sa'.

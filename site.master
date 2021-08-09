@@ -1,0 +1,638 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>MEDICDATA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="MEDICDATA, Medical Data, Software, Medical Software, Medical Data Software" />
+    <meta name="description" content="Hospital Management,MEDICDATA, Medical Data, Software, Medical Software, Medical Data Software">
+    <link rel="SHORTCUT ICON" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link type="text/css" rel="stylesheet" media="all" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/style4.css">
+    <link type="text/css" rel="stylesheet" href="css/fontawesome-all.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="se-pre-con">
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-header Headerheading">
+                <h1>
+                    <a href="Home.aspx" class="newLogo">
+                        <img src="images/logo2.png" />
+                    </a>
+                </h1>
+            </div>
+            <div id="divSiteLogo" runat="server">
+                <!-- site logo -->
+            </div>
+            <ul class="top-icons-agileits-w3layouts float-right">
+                <li class="nav-item dropdown"><a class="nav-link navLinks dropdown-toggle" href="#"
+                    id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false"><i class="far fa-user"></i><span id="LoginUserName" runat="server">
+                    </span></a>
+                    <div class="dropdown-menu drop-3">
+                        <a href="HospitalList.aspx" visible="false" id="HospitalMenu" runat="server" class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-user mr-3"></i>Hospital
+                            </h4>
+                        </a><a href="UserList.aspx" visible="false" id="UsersMenu" runat="server" class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-users mr-3"></i>Users
+                            </h4>
+                        </a><a href="winapp/MEDICDATA.msi" visible="false" class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-download mr-3"></i>Win App Download
+                            </h4>
+                        </a><a href="UserPermission.aspx" visible="false" id="PermissionMenu" runat="server"
+                            class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-cog mr-3"></i>User Permission
+                            </h4>
+                        </a><a href="ServiceList.aspx" id="ServicesMenu" visible="false" runat="server" class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-link mr-3"></i>Services
+                            </h4>
+                        </a><a href="StateList.aspx" id="StateMenu" visible="false" runat="server" class="dropdown-item mt-3">
+                            <h4>
+                                <i class="fas fa-street-view mr-3"></i>State
+                            </h4>
+                        </a>
+                        <div class="dropdown-divider" id="MenuDivider" runat="server">
+                        </div>
+                        <asp:LinkButton runat="server" ID="txtLogout" CssClass="dropdown-item mt-3 mb-3"
+                            OnClick="txtLogout_Click"><h4><i class="fas fa-sign-out-alt mr-3"></i>Logout</h4>
+                        </asp:LinkButton>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrapper mt-1">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <span>
+                    <img src="images/logo2.png" class="mobile-img" />
+                </span>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active"><a href="Home.aspx"><i class="fas fa-th-large"></i>Dashboard </a>
+                </li>
+                <li id="PMenu5" visible="false" runat="server"><a href="#ASDGgenmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>AGE AND SEX DISTRIBUTION BY ADMISSION
+                    AND THE TOTAL OUTCOME GENERAL<i class="fas fa-angle-down fa-pull-right"> </i></a>
+                    <ul class="collapse list-unstyled" id="ASDGgenmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu21" Visible="false" runat="server" Text="ADMISSION=>MALE"
+                                OnClick="ASDGlnkgenadmissionmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu22" Visible="false" runat="server" Text="ADMISSION=>FEMALE"
+                                OnClick="ASDGlnkgenadmissionfemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu23" Visible="false" runat="server" Text="DEATH=>MALE" OnClick="ASDGlnkgendeathmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu24" Visible="false" runat="server" Text="DEATH=>FEMALE" OnClick="ASDGlnkgendeathfemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu6" visible="false" runat="server"><a href="#ASDGmccmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>AGE AND SEX DISTRIBUTION BY ADMISSION
+                    AND THE TOTAL OUTCOME MCC<i class="fas fa-angle-down fa-pull-right"> </i></a>
+                    <ul class="collapse list-unstyled" visible="false" id="ASDGmccmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu25" Visible="false" runat="server" Text="NEW CASE=>MALE"
+                                OnClick="ASDGlnkmccadmissionmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu26" Visible="false" runat="server" Text="NEW CASE=>FEMALE"
+                                OnClick="ASDGlnkmccadmissionfemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu27" Visible="false" runat="server" Text="DEATH=>MALE" OnClick="ASDGlnkmccdeathmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu28" Visible="false" runat="server" Text="DEATH=>FEMALE" OnClick="ASDGlnkmccdeathfemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu101" runat="server" visible="false"><a href="#allhospbeds" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>ALLOCATION OF HOSPITAL BEDS<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="allhospbeds">
+                        <li>
+                            <asp:LinkButton ID="Menu101" runat="server" Text="GENERAL" OnClick="Menu101_Click"
+                                Visible="false"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu102" runat="server" Text="MCC" Visible="false" OnClick="Menu102_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu103" runat="server" Text="Complex" Visible="false" OnClick="Menu103_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu9" visible="false" runat="server"><a href="#sooStateMenuGen" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>ATTENDANCE BY STATE OF ORIGIN (SOO)
+                    GENERAL<i class="fas fa-angle-down fa-pull-right"> </i></a>
+                    <ul class="collapse list-unstyled" id="sooStateMenuGen">
+                        <li>
+                            <asp:LinkButton ID="Menu37" Visible="false" runat="server" Text="OUT-PATIENT=>MALE"
+                                OnClick="lnkOPDMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu38" Visible="false" runat="server" Text="OUT-PATIENT=>FEMALE"
+                                OnClick="lnkOPDFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu39" Visible="false" runat="server" Text="IN-PATIENT=>MALE"
+                                OnClick="lnkIPDMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu40" Visible="false" runat="server" Text="IN-PATIENT=>FEMALE"
+                                OnClick="lnkIPDFemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu10" visible="false" runat="server"><a href="#sooStateMenuMCC" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>ATTENDANCE BY STATE OF ORIGIN (SOO)
+                    MCC <i class="fas fa-angle-down fa-pull-right"></i></a>
+                    <ul class="collapse list-unstyled" id="sooStateMenuMCC">
+                        <li>
+                            <asp:LinkButton ID="Menu41" Visible="false" runat="server" Text="OUT-PATIENT=>MALE"
+                                OnClick="lnkOPDMaleMCC_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu42" Visible="false" runat="server" Text="OUT-PATIENT=>FEMALE"
+                                OnClick="lnkOPDFemaleMCC_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu43" Visible="false" runat="server" Text="IN-PATIENT=>MALE"
+                                OnClick="lnkIPDMaleMCC_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu44" Visible="false" runat="server" Text="IN-PATIENT=>FEMALE"
+                                OnClick="lnkIPDFemaleMCC_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu102" runat="server" visible="false"><a href="#blindness" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>BLINDNESS PREVENTION DATA UNIT
+                    <i class="fas fa-angle-down fa-pull-right"></i></a>
+                    <ul class="collapse list-unstyled" id="blindness">
+                        <li>
+                            <asp:LinkButton ID="Menu104" runat="server" Text="General" OnClick="Menu104_Click"
+                                Visible="false"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu105" runat="server" Text="MCC" Visible="false" OnClick="Menu105_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu106" runat="server" Text="Complex" Visible="false" OnClick="Menu106_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu11" visible="false" runat="server"><a href="#cipdgenerator" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>CIPD GENERATOR (CASES) <i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="cipdgenerator">
+                        <li>
+                            <asp:LinkButton ID="Menu45" Visible="false" runat="server" Text="MALE [<1 YR]" OnClick="lnkOneYearMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu46" Visible="false" runat="server" Text="MALE [1-4 YR]" OnClick="lnkFourYearMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu47" runat="server" Text="MALE [5-14 YR]" OnClick="lnkFourtineMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu48" runat="server" Text="MALE [15-49 YR]" OnClick="lnlFourtiNineMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu49" Visible="false" runat="server" Text="MALE [>50 YR]" OnClick="lnkFiftyMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu50" Visible="false" runat="server" Text="FEMALE [<1 YR]"
+                                OnClick="lnkOneYearFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu51" Visible="false" runat="server" Text="FEMALE [1-4 YR]"
+                                OnClick="lnkFourYearFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu52" Visible="false" runat="server" Text="FEMALE [5-14 YR]"
+                                OnClick="lnkFourtineFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu53" Visible="false" runat="server" Text="FEMALE [15-49 YR]"
+                                OnClick="lnlFourtiNineFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu54" Visible="false" runat="server" Text="FEMALE [>50 YR]"
+                                OnClick="lnkFiftyFemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu12" visible="false" runat="server"><a href="#cipddeathgenerator" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>CIPD GENERATOR (DEATH) <i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="cipddeathgenerator">
+                        <li>
+                            <asp:LinkButton ID="Menu55" Visible="false" runat="server" Text="MALE [<1 YR]" OnClick="lnkdOneYearMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu56" Visible="false" runat="server" Text="MALE [1-4 YR]" OnClick="lnkdFourYearMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu57" Visible="false" runat="server" Text="MALE [5-14 YR]"
+                                OnClick="lnkdFourtineMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu58" Visible="false" runat="server" Text="MALE [15-49 YR]"
+                                OnClick="lnldFourtiNineMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu59" Visible="false" runat="server" Text="MALE [>50 YR]" OnClick="lnkdFiftyMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu60" Visible="false" runat="server" Text="FEMALE [<1 YR]"
+                                OnClick="lnkdOneYearFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu61" Visible="false" runat="server" Text="FEMALE [1-4 YR]"
+                                OnClick="lnkdFourYearFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu62" Visible="false" runat="server" Text="FEMALE [5-14 YR]"
+                                OnClick="lnkdFourtineFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu63" Visible="false" runat="server" Text="FEMALE [15-49 YR]"
+                                OnClick="lnldFourtiNineFemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu64" Visible="false" runat="server" Text="FEMALE [>50 YR]"
+                                OnClick="lnkdFiftyFemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu103" runat="server" visible="false"><a href="#dentalproc" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>DENTAL PROCEDURE <i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="dentalproc">
+                        <li>
+                            <asp:LinkButton ID="Menu107" runat="server" Text="Dental Procedures - General" OnClick="Menu107_Click"
+                                Visible="false"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu108" runat="server" Text="Dental Procedures - MCC" Visible="false"
+                                OnClick="Menu108_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu109" runat="server" Text="Dental Procedures - Complex" Visible="false"
+                                OnClick="Menu109_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu105" runat="server" visible="false"><a href="#livebirth" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>LIVE BIRTH WEIGHT BY SEX<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="livebirth">
+                        <li>
+                            <asp:LinkButton ID="Menu113" runat="server" Text="General" OnClick="Menu113_Click"
+                                Visible="false"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu114" runat="server" Text="MCC" Visible="false" OnClick="Menu114_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu115" runat="server" Text="Complex" Visible="false" OnClick="Menu115_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu104" runat="server" visible="false"><a href="#maternalhealth" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>MATERNAL HEALTH SERVICES INFORMATION
+                    <i class="fas fa-angle-down fa-pull-right"></i></a>
+                    <ul class="collapse list-unstyled" id="maternalhealth">
+                        <li>
+                            <asp:LinkButton ID="Menu110" runat="server" Text="Maternal Health - GENERAL" OnClick="Menu110_Click"
+                                Visible="false"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu111" runat="server" Text="Maternal Health - MCC" Visible="false"
+                                OnClick="Menu111_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu112" runat="server" Text="Maternal Health - Complex" Visible="false"
+                                OnClick="Menu112_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu1" visible="false" runat="server"><a href="#homeSubmenu" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>OUTPATIENT CASES AND ATTENDANCE
+                    (DOPCA) GENERAL <i class="fas fa-angle-down fa-pull-right"></i></a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <asp:LinkButton ID="Menu1" Visible="false" runat="server" Text="OUT PATIENTS=>NEW CASE=>MALE"
+                                OnClick="lnkgennewcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2" Visible="false" runat="server" Text="OUT PATIENTS=>NEW CASE=>FEMALE"
+                                OnClick="lnkgennewcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu3" Visible="false" runat="server" Text="OUT PATIENTS=>OLD CASE=>MALE"
+                                OnClick="lnkgenoldcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu4" Visible="false" runat="server" Text="OUT PATIENTS=>OLD CASE=>FEMALE"
+                                OnClick="lnkgenoldcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu5" Visible="false" runat="server" Text="IN PATIENTS=>NEW CASE=>MALE"
+                                OnClick="IPDlnkgennewcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu6" Visible="false" runat="server" Text="IN PATIENTS=>NEW CASE=>FEMALE"
+                                OnClick="IPDlnkgennewcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu7" runat="server" Text="IN PATIENTS=>OLD CASE=>MALE" Visible="false"
+                                OnClick="IPDlnkgenoldcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu8" runat="server" Text="IN PATIENTS=>OLD CASE=>FEMALE" Visible="false"
+                                OnClick="IPDlnkgenoldcasefemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu2" visible="false" runat="server"><a href="#OPDMccEntry" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>OUTPATIENT CASES AND ATTENDANCE
+                    (DOPCA) MCC<i class="fas fa-angle-down fa-pull-right"></i> </a>
+                    <ul class="collapse list-unstyled" id="OPDMccEntry">
+                        <li>
+                            <asp:LinkButton ID="Menu9" Visible="false" runat="server" Text="OUT PATIENTS=>NEW CASE=>MALE"
+                                OnClick="lnkmccnewcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu10" Visible="false" runat="server" Text="OUT PATIENTS=>NEW CASE=>FEMALE"
+                                OnClick="lnkmccnewcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu11" Visible="false" runat="server" Text="OUT PATIENTS=>OLD CASE=>MALE"
+                                OnClick="lnkmccoldcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu12" Visible="false" runat="server" Text="OUT PATIENTS=>OLD CASE=>FEMALE"
+                                OnClick="lnkmccoldcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu13" Visible="false" runat="server" Text="IN PATIENTS=>NEW CASE=>MALE"
+                                OnClick="IPDlnkmccnewcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu14" Visible="false" runat="server" Text="IN PATIENTS=>NEW CASE=>FEMALE"
+                                OnClick="IPDlnkmccnewcasefemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu15" Visible="false" runat="server" Text="IN PATIENTS=>OLD CASE=>MALE"
+                                OnClick="IPDlnkmccoldcasemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu16" Visible="false" runat="server" Text="IN PATIENTS=>OLD CASE=>FEMALE"
+                                OnClick="IPDlnkmccoldcasefemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu7" visible="false" runat="server"><a href="#ASDOGgenmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>OUT-PATIENT CASUALITY NEW CASES
+                    DEATH BY AGE GROUP SEX GENERAL<i class="fas fa-angle-down fa-pull-right"> </i></a>
+                    <ul class="collapse list-unstyled" id="ASDOGgenmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu29" Visible="false" runat="server" Text="NEW CASE=>MALE"
+                                OnClick="ASDOGlnkgenadmissionmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu30" Visible="false" runat="server" Text="NEW CASE=>FEMALE"
+                                OnClick="ASDOGlnkgenadmissionfemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu31" Visible="false" runat="server" Text="DEATH=>MALE" OnClick="ASDOGlnkgendeathmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu32" Visible="false" runat="server" Text="DEATH=>FEMALE" OnClick="ASDOGlnkgendeathfemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu8" visible="false" runat="server"><a href="#ASDOGmccmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>OUT-PATIENT CASUALITY NEW CASES
+                    DEATH BY AGE GROUP SEX MCC<i class="fas fa-angle-down fa-pull-right"> </i></a>
+                    <ul class="collapse list-unstyled" id="ASDOGmccmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu33" Visible="false" runat="server" Text="ADMISSION=>MALE"
+                                OnClick="ASDOGlnkmccadmissionmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu34" Visible="false" runat="server" Text="ADMISSION=>FEMALE"
+                                OnClick="ASDOGlnkmccadmissionfemale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu35" Visible="false" runat="server" Text="DEATH=>MALE" OnClick="ASDOGlnkmccdeathmale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu36" Visible="false" runat="server" Text="DEATH=>FEMALE" OnClick="ASDOGlnkmccdeathfemale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu111" visible="false" runat="server"><a href="#MisGen" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>MISCELLANEOUS GENERAL<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="MisGen">
+                        <li>
+                            <asp:LinkButton ID="Menu2021" Visible="false" runat="server" Text="NEW CASE=>MALE"
+                                OnClick="MisGenMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2022" Visible="false" runat="server" Text="NEW CASE=>FEMALE"
+                                OnClick="MisGenFeMale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu112" visible="false" runat="server"><a href="#MisMCC" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>MISCELLANEOUS MCC<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" id="MisMCC">
+                        <li>
+                            <asp:LinkButton ID="Menu2023" Visible="false" runat="server" Text="NEW CASE=>MALE"
+                                OnClick="MisMCCMale_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2024" Visible="false" runat="server" Text="NEW CASE=>FEMALE"
+                                OnClick="MisMCCFeMale_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu3" visible="false" runat="server"><a href="#Deathgenmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>PATIENT DEATH GENERAL<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" visible="false" id="Deathgenmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu17" Visible="false" runat="server" Text="OUT-PATIENT=>DEATHS"
+                                OnClick="opdlnkgendeath_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu18" Visible="false" runat="server" Text="IN-PATIENT=>DEATHS"
+                                OnClick="ipdlnkgendeath_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2031" Visible="false" runat="server" Text="OUT PATIENT TOTAL=>MALE=>DEATH"
+                                OnClick="OutPatientMaleDeathGeneral_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2032" Visible="false" runat="server" Text="OUT PATIENT TOTAL=>FEMALE=>DEATH"
+                                OnClick="OutPatientFeMaleDeathGeneral_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li id="PMenu4" visible="false" runat="server"><a href="#Deathmccmenubox" data-toggle="collapse"
+                    aria-expanded="false"><i class="far fa-file"></i>PATIENT DEATH MCC<i class="fas fa-angle-down fa-pull-right">
+                    </i></a>
+                    <ul class="collapse list-unstyled" visible="false" id="Deathmccmenubox">
+                        <li>
+                            <asp:LinkButton ID="Menu19" Visible="false" runat="server" Text="OUT-PATIENT=>DEATHS"
+                                OnClick="opdlnkmccdeath_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu20" Visible="false" runat="server" Text="IN-PATIENT=>DEATHS"
+                                OnClick="ipdlnkmccdeath_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2033" Visible="false" runat="server" Text="OUT PATIENT TOTAL=>MALE=>DEATH"
+                                OnClick="OutPatientMaleDeathMCC_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="Menu2034" Visible="false" runat="server" Text="OUT PATIENT TOTAL=>FEMALE=>DEATH"
+                                OnClick="OutPatientFeMaleDeathMCC_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <%--Reports--%>
+                <%-- <li><a href="#OPDGeneralReport" data-toggle="collapse" aria-expanded="false"><i class="fas fa-chart-pie">
+                </i>DOPCA GENERAL<i class="fas fa-angle-down fa-pull-right"></i> </a>
+                    <ul class="collapse list-unstyled" id="OPDGeneralReport">
+                        <li>
+                            <asp:LinkButton ID="lnkgenmonthly" runat="server" Text="Monthly Data - Out Patient"
+                                OnClick="lnkgenmonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkgenquarterly" runat="server" Text="Quarterly Data - Out Patient"
+                                Visible="false" OnClick="lnkgenquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkgenyearly" runat="server" Text="Yearly Data - Out Patient"
+                                Visible="false" OnClick="lnkgenyearly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkgenmonthly" runat="server" Text="Monthly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkgenmonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkgenquarterly" runat="server" Text="Quarterly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkgenquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkgenyearly" runat="server" Text="Yearly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkgenyearly_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li><a href="#OPDMCCReport" data-toggle="collapse" aria-expanded="false"><i class="fas fa-chart-pie">
+                </i>DOPCA MCC<i class="fas fa-angle-down fa-pull-right"></i> </a>
+                    <ul class="collapse list-unstyled" id="OPDMCCReport">
+                        <li>
+                            <asp:LinkButton ID="lnkmccmonthly" runat="server" Text="Monthly Data - Out Patient"
+                                OnClick="lnkmccmonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkmccquarterly" runat="server" Text="Quarterly Data - Out Patient"
+                                Visible="false" OnClick="lnkmccquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkmccyearly" runat="server" Text="Yearly Data - Out Patient"
+                                Visible="false" OnClick="lnkmccyearly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkmccmonthly" runat="server" Text="Monthly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkmccmonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkmccquarterly" runat="server" Text="Quarterly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkmccquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkmccyearly" runat="server" Text="Yearly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkmccyearly_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li><a href="#OPDComplexReport" data-toggle="collapse" aria-expanded="false"><i class="fas fa-chart-pie">
+                </i>DOPCA COMPLEX<i class="fas fa-angle-down fa-pull-right"></i> </a>
+                    <ul class="collapse list-unstyled" id="OPDComplexReport">
+                        <li>
+                            <asp:LinkButton ID="lnkcommonthly" runat="server" Text="Monthly Data - Out Patient"
+                                OnClick="lnkcommonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkcomquarterly" runat="server" Text="Quarterly Data - Out Patient"
+                                Visible="false" OnClick="lnkcomquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lnkcomyearly" runat="server" Text="Yearly Data - Out Patient"
+                                Visible="false" OnClick="lnkcomyearly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkcommonthly" runat="server" Text="Monthly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkcommonthly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkcomquarterly" runat="server" Text="Quarterly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkcomquarterly_Click"></asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="IPDlnkcomyearly" runat="server" Text="Yearly Data - In Patient"
+                                Visible="false" OnClick="IPDlnkcomyearly_Click"></asp:LinkButton></li>
+                    </ul>
+                </li>--%>
+                <li><a href="About.aspx"><i class="far fa-window-restore"></i>About Us </a></li>
+                <li><a href="Contact.aspx"><i class="far fa-envelope"></i>Contact Us </a></li>
+                <li><a href="Javascript:void(0)"><i class="far fa-map"></i>How To ? </a></li>
+            </ul>
+            <a href="Javascript:void(0)" id="sidebarCollapse1" class="MenuToggles"><i class="fas fa-arrow-circle-left">
+            </i></a>
+            <div class="follow-link">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a
+                    href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="container-fluid ContentPart">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <!-- Required common Js -->
+    <script type="text/javascript" src='js/jquery-2.2.3.min.js'></script>
+    <script type="text/javascript" src='js/jquery.min.js'></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $(".se-pre-con").fadeOut("slow");
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+            $('#sidebarCollapse1').on('click', function () {
+                if ($('#sidebar').attr("class") == "active") {
+                    $('#sidebarCollapse1').find("i").removeClass("fas fa-arrow-circle-right");
+                    $('#sidebarCollapse1').find("i").addClass("fas fa-arrow-circle-left");
+                }
+                else {
+                    $('#sidebarCollapse1').find("i").removeClass("fas fa-arrow-circle-left");
+                    $('#sidebarCollapse1').find("i").addClass("fas fa-arrow-circle-right");
+                }
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <!-- dropdown nav -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+                );
+
+            $(".numeric").keydown(function (e) {
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    return;
+                }
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        function removetooltip(ele) {
+            setTimeout(function () { $("." + ele).parent("div").children(".tooltip").remove(); }, 3000)
+        }
+        function isDate(txtDate) {
+            var currVal = txtDate;
+            if (currVal == '')
+                return false;
+            var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+            var dtArray = currVal.match(rxDatePattern); // is format OK?
+            if (dtArray == null)
+                return false;
+            dtMonth = dtArray[3];
+            dtDay = dtArray[1];
+            dtYear = dtArray[5];
+            if (dtMonth < 1 || dtMonth > 12)
+                return false;
+            else if (dtDay < 1 || dtDay > 31)
+                return false;
+            else if ((dtMonth == 4 || dtMonth == 6 || dtMonth == 9 || dtMonth == 11) && dtDay == 31)
+                return false;
+            else if (dtMonth == 2) {
+                var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+                if (dtDay > 29 || (dtDay == 29 && !isleap))
+                    return false;
+            }
+            return true;
+        }
+
+        function validateEmail($email) {
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            return emailReg.test($email);
+        }
+    </script>
+    <!--DatePicker-->
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <script type="text/javascript">
+        $(".datepicker").datepicker({
+            "setDate": new Date(),
+            dateFormat: 'dd/mm/yy',
+            todayHighlight: true,
+            "autoclose": true
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
